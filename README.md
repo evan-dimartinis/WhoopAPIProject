@@ -11,11 +11,11 @@ The main sections of the app, as separated through the react components are:
 <li>Journal entry - like a personal journal to make brief notes about the day - keep track of important events perhaps</li>
 
 <h1>General Structure</h1>
-<li>The front end of this application uses React including React Redux to communicate to the locally run server.</li>
+<li>The front end of this application uses React including React Redux to communicate to the locally run server.
 
-<li>This is my first experience with Express.js, which I have created the server with. The top to-do item here is to configure the routing and file paths soon.<li/>
+<li>This is my first experience with Express.js, which I have created the server with. The top to-do item here is to configure the routing and file paths soon.
 
-<li>Database is also locally hosted with Postgres<li/>
+<li>Database is also locally hosted with Postgres
 
 <h1>Whoop Integration</h1>
 Currently the Whoop OAuth2 integration is happening through the backend in a very makeshift process that will allow me to get a new refresh token for my user if need be. This will of course have to be improved in the future.
