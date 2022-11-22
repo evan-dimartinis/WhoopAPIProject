@@ -23,9 +23,9 @@ Currently the Whoop OAuth2 integration is happening through the backend in a ver
 Upon initial app authorization, the application will test the present validity of the user's token and throw an error if a new token needs to be obtained from the user's Whoop account.
 
 I am now collecting only 3 datapoints from whoop, which upon posting of the user's daily entry are stored in the database with that day's data.
-<li>Recovery<li/>
-<li>Strain<li/>
-<li>Time Asleep<li/>
+<li>Recovery
+<li>Strain
+<li>Time Asleep
 
 As the project progresses I'm really looking forward to using more of Whoop's data collection to create a way to see relations in my behavior and habits.
 
