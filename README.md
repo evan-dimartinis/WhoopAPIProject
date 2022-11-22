@@ -1,7 +1,5 @@
 # WhoopAPIProject
 
-<h1>Dashboard Project</h1>
-
 This project is in it's infancy for now. The main idea is to create a dashboard for myself to keep track of my habits and hold myself accountable. There are plenty of issues that I am keeping track of so I can get the main functionalities out the way first. This includes the file structure of the server, as well as security concerns with the server and OAuth2 Integration with whoop.
 
 The main sections of the app, as separated through the react components are:
