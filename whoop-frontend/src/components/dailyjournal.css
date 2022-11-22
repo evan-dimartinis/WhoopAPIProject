@@ -1,0 +1,50 @@
+.dailyjournalcontainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    height: 97%;
+    width: 30%;
+    background-color: black;
+    margin-left: 1.66%;
+    margin-right: 1.66%;
+    margin-top: 10px;
+}
+
+.journalentryrow {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px white solid;
+}
+
+.entrylabel {
+    padding-left: 10px;
+    color: white;
+}
+
+.postdailyentrybtn {
+    border: 1px white solid;
+    color: white;
+    background-color: black;
+    width: 50%;
+    height: 30px;
+    margin-top: 5px;
+}
+
+.postdailyentrybtn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.dailyentrydatepicker {
+    width: 50%;
+    height: 30px;
+    border: 1px white solid;
+    color: white;
+    text-decoration-color: white;
+    background-color: black;
+}

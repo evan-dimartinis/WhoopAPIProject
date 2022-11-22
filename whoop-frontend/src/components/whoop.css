@@ -1,0 +1,23 @@
+.whoopcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+    width: 30%;
+    background-color: black;
+    margin-left: 1.66%;
+    margin-right: 1.66%;
+}
+
+h1 {
+    color: white;
+    font-size: large;
+}
+
+.sleepTime {
+    color: white;
+    font-size: xx-large;
+    font-weight: 800;
+    margin-top: 0;
+}

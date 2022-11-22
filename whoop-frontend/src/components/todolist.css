@@ -1,0 +1,103 @@
+@keyframes slideinfromtop {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+    }
+}
+
+.todoslistdiv {
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.273);
+    width: 100%;
+    border-radius: 5px;
+    overflow-y: auto hidden;
+}
+
+.todotitle {
+    font-size: large;
+    margin-left: 10px;
+    max-lines: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: auto;
+}
+
+.todorow {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(128, 128, 128, 0.777);
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.tododone_btn {
+    height: 3vh;
+    margin-right: 10px;
+    background-color: rgba(128, 128, 128, 0.777);
+    border: 2px white solid;
+    color: white;
+    width: 5vw;
+    border-radius: 2px;
+}
+
+.tododone_btn:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.newtododiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+}
+
+.newtodoinput {
+    border: none;
+    border-bottom: 4px white solid;
+    background-color: transparent;
+    width: 20vw;
+    color: white;
+    font-size: large;
+}
+
+.newtodoinput:focus {
+    outline: none;
+}
+
+.addnewtodobtn {
+    width: 5vw;
+    margin-right: 10px;
+    background-color: transparent;
+    border: 2px white solid;
+    color: white;
+}
+
+.addnewtodobtn:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.done_msg {
+    height: 3vh;
+    margin-right: 10px;
+}
+
+.complete {
+    border-top: 1px green solid;
+    border-bottom: 1px green solid;
+    background-color: rgba(133, 200, 133, 0.273);
+}
+
+.todooptionsdiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding-right: 10px;
+}
