@@ -9,19 +9,21 @@
 
 .todoslistdiv {
     height: 100%;
-    background-color: rgba(128, 128, 128, 0.273);
+    background-color: black;
     width: 100%;
     border-radius: 5px;
     overflow-y: auto hidden;
+    border-bottom: 1px white solid;
 }
 
 .todotitle {
+    white-space: nowrap;
     font-size: large;
     margin-left: 10px;
-    max-lines: 1;
     text-overflow: ellipsis;
-    white-space: nowrap;
-    width: auto;
+    overflow: hidden;
+    max-width: 300px;
+    color: white;
 }
 
 .todorow {

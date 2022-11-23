@@ -49,7 +49,7 @@ function TodoList(props) {
               key={item.hmy.toString()}
               className={item.bcompleted ? "todorow complete" : "todorow"}
             >
-              <h1 className="todotitle">{item.stitle}</h1>
+              <p className="todotitle">{item.stitle}</p>
               {item.bcompleted ? (
                 <p className="done_msg">Complete!</p>
               ) : (

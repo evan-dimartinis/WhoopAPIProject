@@ -3,7 +3,7 @@ const { pool, client } = require("../db");
 const getUserEverydays = async (userid) => {
   await generateTodaysEverydays(userid);
   const res = await pool.query(
-    `select ed.hmy, e.sname, ed.bcompleted
+    `select ed.hmy, e.sname, ed.bcompleted, e.hmy everydayshmy
     from everydays e 
       join everydaydetail ed on ed.heverydays = e.hmy
     where e.dtstartdate < current_timestamp
@@ -11,6 +11,7 @@ const getUserEverydays = async (userid) => {
       and ed.dtlogged = date_trunc('day', current_timestamp)
       and e.happuser = ${userid}
       and e.bremoved = false
+      and e.dtenddate > current_timestamp
     order by ed.hmy`
   );
   return res.rows;
@@ -55,8 +56,19 @@ const markAsComplete = async (hmy) => {
   }
 };
 
+const deleteEveryday = async (userid, hmy) => {
+  try {
+    const res = await pool.query(`update everydays set dtenddate = (date_trunc('day', current_timestamp) - INTERVAL '1 day') where hmy = ${hmy}`)
+    const response = getUserEverydays(userid)
+    return response
+  } catch (err) {
+    throw new Error("Could not delete user everyday")
+  }
+}
+
 module.exports = {
   getUserEverydays,
   addNewEveryday,
   markAsComplete,
+  deleteEveryday
 };

@@ -16,7 +16,10 @@ export const EverydaysSlice = createSlice({
       })
       .addCase(markAsComplete.fulfilled, (state, action) => {
         state.everydays = action.payload
-      });
+      })
+      .addCase(deleteEveryday.fulfilled, (state, action) => {
+        state.everydays = action.payload
+      })
   },
 });
 
@@ -69,6 +72,25 @@ export const markAsComplete = createAsyncThunk(
       body: JSON.stringify(mydata)
     })
     const resdata = await res.json()
+    return resdata
+  }
+)
+
+export const deleteEveryday = createAsyncThunk(
+  "Everydays/deleteEveryday",
+  async (mydata) => {
+    const res = await fetch(
+      'http://localhost:8080/deleteeveryday', {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(mydata)
+      }
+    )
+    const resdata = await res.json()
+    console.log(resdata)
     return resdata
   }
 )

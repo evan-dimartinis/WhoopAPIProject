@@ -15,6 +15,7 @@ const {
   getUserEverydays,
   addNewEveryday,
   markAsComplete,
+  deleteEveryday,
 } = require("./Queries/everydays");
 const {
   getUserTodos,
@@ -162,6 +163,15 @@ app.post("/markeverydayascomplete", async (req, res) => {
     res.status(500);
   }
 });
+
+app.post("/deleteeveryday", async (req, res) => {
+  try {
+    const response = await deleteEveryday(req.body.userid, req.body.hmy)
+    res.status(200).json(response)
+  } catch (err) {
+    res.status(500)
+  }
+})
 
 app.get(
   "/addNewEveryday/userid/:userid/sname/:sname/dtend/:dtend",

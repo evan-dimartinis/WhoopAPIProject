@@ -16,7 +16,7 @@ const extendwhoopbardiv = (reach) => keyframes`
 const Recoverydiv = styled.div`
   height: 2%;
   background-color: ${(props) =>
-    props.reach < 33 ? (props.reach < 66 ? "red" : "yellow") : "green"};
+    props.reach < 33 ? (props.reach < 66 ? "yellow" : "red") : "green"};
   animation: ${(props) => extendwhoopbardiv(props.reach)} 0.5s linear 1 0.5s;
   animation-fill-mode: both;
 `;
@@ -43,7 +43,7 @@ const Whoop = (props) => {
       <h1>Strain: {Math.round(whoopdata.strain * 100) / 100}</h1>
       <StrainDiv reach={whoopdata.strain * 4.762} />
       <h1>Hours of Sleep:</h1>
-      <p className="sleepTime">{Math.round(whoopdata.minutesAsleep / 60)}:{Math.round(whoopdata.minutesAsleep % 60)}</p>
+      <p className="sleepTime">{Math.round(whoopdata.minutesAsleep / 60)}:{(Math.round(whoopdata.minutesAsleep % 60) < 10 ? "0" : "") + Math.round(whoopdata.minutesAsleep % 60)}</p>
     </div>
   );
 };

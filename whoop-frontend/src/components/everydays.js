@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addNewEveryday, markAsComplete } from "../store/everydaysSlice";
+import { addNewEveryday, deleteEveryday, markAsComplete } from "../store/everydaysSlice";
 import styledcomponent, { keyframes } from 'styled-components'
+import TrashIcon from '@iconscout/react-unicons/icons/uil-trash';
 import "./everydays.css";
 import '../App.css'
 
@@ -51,11 +52,19 @@ function EverydaysComponent(props) {
     );
   };
 
+  const DeleteMyEveryday = (hmy) => {
+    console.log(hmy)
+    dispatch(deleteEveryday({
+      userid: userid,
+      hmy: hmy
+    }))
+  }
+
   return (
     <div className="tasksectioncontainer">
       <h1 className="sectiontitle">Everydays</h1>
       <div className="everydaysdiv">
-        <button
+        {/* <button
           onClick={() => setShowAddEveryday(!ShowAddEveryday)}
           className="addeverydaybtn"
         >
@@ -87,7 +96,7 @@ function EverydaysComponent(props) {
           <button className="addbtn" onClick={addEveryday}>
             Add
           </button>
-        </div>
+        </div> */}
         {everydays.map((item) => {
           return (
             <div
@@ -96,10 +105,11 @@ function EverydaysComponent(props) {
                 item.bcompleted ? "everydayrow complete" : "everydayrow"
               }
             >
-              <h1 className="everydaytitle">{item.sname}</h1>
+              <p className="everydaytitle">{item.sname}</p>
               {item.bcompleted ? (
                 <p className="done_msg">Complete!</p>
               ) : (
+                <div className="todooptionsdiv">
                 <button
                   onClick={() => {
                     markComplete(item.hmy);
@@ -108,10 +118,29 @@ function EverydaysComponent(props) {
                 >
                   Done
                 </button>
+                <TrashIcon
+                color={"white"}
+                size={20}
+                onClick={() => {
+                  DeleteMyEveryday(item.everydayshmy)
+                }}
+              />
+              </div>
               )}
             </div>
           );
         })}
+        <div className="newtododiv">
+          <input
+            className="newtodoinput"
+            type={"text"}
+            value={newEverydayName}
+            onChange={(e) => setNewEverydayName(e.target.value)}
+          />
+          <button className="addnewtodobtn" onClick={addEveryday}>
+            +
+          </button>
+        </div>
       </div>
     </div>
   );
