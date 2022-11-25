@@ -13,6 +13,7 @@ import Whoop from "../components/whoop";
 import { getRecoveryData } from "../store/whoopSlice";
 import DailyJournal from "../components/dailyjournal";
 import { getUserJournal } from "../store/dailyjournalSlice";
+import JournalEntry from "../components/journalentry";
 
 export default function Dashboard(props) {
   const userdata = useSelector((state) => state.Auth);
@@ -49,7 +50,10 @@ export default function Dashboard(props) {
       </div>
       <div className="bottomcontainer">
         <DailyJournal />
-        <Whoop />
+        <div className="centerbottomcontainer">
+          <Whoop />
+          <JournalEntry />
+        </div>
       </div>
     </div>
   );

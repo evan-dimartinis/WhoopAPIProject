@@ -133,6 +133,18 @@ DASHBOARD STYLE
   background-color: black;
 }
 
+.centerbottomcontainer {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  height: 100%;
+  margin-left: 1.66%;
+  margin-right: 1.66%;
+  background-color: black;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 .sectiontitle {
   color: white;
   font-size: larger;

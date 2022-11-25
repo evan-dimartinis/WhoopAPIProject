@@ -11,7 +11,7 @@ import {
 } from "react-router-dom";
 
 async function checkAuthenticationStatus() {
-  const x = await fetch("http://localhost:8080/authenticateuser", {
+  const x = await fetch("http://localhost:8080/auth/authenticateuser", {
     method: "POST",
     mode: "cors",
     headers: {
