@@ -29,7 +29,7 @@ export const AuthSlice = createSlice({
 export const validateRefreshToken = createAsyncThunk(
   "Auth/validateRefreshToken",
   async (cookierefreshtoken) => {
-    const response = await fetch(`http://localhost:8080/validaterefreshtoken`, {
+    const response = await fetch(`http://localhost/auth/validaterefreshtoken`, {
       method: "POST",
       mode: "cors",
       headers: {
@@ -45,7 +45,7 @@ export const validateRefreshToken = createAsyncThunk(
 export const logInUser = createAsyncThunk(
   "Auth/logInUser",
   async (authdata) => {
-    const response = await fetch(`http://localhost:8080/authenticateuser`, {
+    const response = await fetch(`http://localhost:8080/auth/authenticateuser`, {
       method: "POST",
       mode: "cors",
       headers: {

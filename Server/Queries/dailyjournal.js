@@ -23,13 +23,10 @@ const getUserJournal = async (userid, daysprior) => {
 
 const insertUserJournal = async (data) => {
   try {
-    console.log(data)
     const res = await pool.query(`insert into dailyentry (happuser, dtofentry, balcohol, bmarijuana, irecovery, dstrain, iminutesofsleep, bwfh, bsocial, imentalwellness, iproductivity, bworkout, iworkouttype, btraveling, iwhoopcycleid)
       values (${data.userid}, date_trunc('day', '${data.dtofentry}'::timestamp), ${data.balcohol}, ${data.bmarijuana}, ${data.irecovery}, ${data.dstrain}, ${data.iminutesofsleep}, ${data.bwfh}, ${data.bsocial}, ${data.imentalwellness}, ${data.iproductivity}, false, ${data.iworkouttype}, ${data.btraveling}, ${data.iwhoopcycleid})
     `)
-    console.log(res)
   } catch (err) {
-    console.log("Error inserting journal: ", err)
     throw new Error("Could not insert daily entry")
   }
 }
@@ -40,7 +37,6 @@ const updateUserJournal = async (data) => {
       where happuser = ${data.userid} and dtofentry = date_trunc('day', '${data.dtofentry}'::timestamp)
     `)
   } catch (err) {
-    console.log("Update error: ", err)
     throw new Error("Error updating Journal")
   }
 }

@@ -32,10 +32,6 @@ const StrainDiv = styled.div`
 const Whoop = (props) => {
   const whoopdata = useSelector((state) => state.Whoop);
 
-  const logrecovery = () => {
-    console.log(whoopdata);
-  };
-
   return (
     <div className="whoopcontainer">
       <h1>Recovery: {whoopdata.recovery}</h1>

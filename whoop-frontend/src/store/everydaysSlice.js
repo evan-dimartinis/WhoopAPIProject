@@ -27,7 +27,7 @@ export const getUserEverydays = createAsyncThunk(
   "Everydays/getUserEverydays",
   async (userid) => {
     const res = await fetch(
-      `http://localhost:8080/geteverydays/userid/${userid}`,
+      `http://localhost:8080/everydays/geteverydays/userid/${userid}`,
       {
         method: "GET",
         mode: "cors",
@@ -46,7 +46,7 @@ export const addNewEveryday = createAsyncThunk(
   async (everydaydata) => {
     //SHOULD RETURN THE UPDATED LIST OF EVERYDAYS
     const res = await fetch(
-      `http://localhost:8080/addNewEveryday/userid/${everydaydata.userid}/sname/${everydaydata.sname}/dtend/${everydaydata.dtend}`,
+      `http://localhost:8080/everydays/addNewEveryday/userid/${everydaydata.userid}/sname/${everydaydata.sname}/dtend/${everydaydata.dtend}`,
       {
         method: "GET",
         mode: "cors",
@@ -63,7 +63,7 @@ export const addNewEveryday = createAsyncThunk(
 export const markAsComplete = createAsyncThunk(
   "Everydays/markAsComplete",
   async (mydata) => {
-    const res = await fetch('http://localhost:8080/markeverydayascomplete', {
+    const res = await fetch('http://localhost:8080/everydays/markeverydayascomplete', {
       method: "POST",
       mode: "cors",
       headers: {
@@ -80,7 +80,7 @@ export const deleteEveryday = createAsyncThunk(
   "Everydays/deleteEveryday",
   async (mydata) => {
     const res = await fetch(
-      'http://localhost:8080/deleteeveryday', {
+      'http://localhost:8080/everydays/deleteeveryday', {
         method: "POST",
         mode: "cors",
         headers: {
@@ -90,7 +90,6 @@ export const deleteEveryday = createAsyncThunk(
       }
     )
     const resdata = await res.json()
-    console.log(resdata)
     return resdata
   }
 )

@@ -22,9 +22,8 @@ export const WhoopSlice = createSlice({
 export const getRecoveryData = createAsyncThunk(
   "Whoop/getRecoveryData",
   async (userid) => {
-    console.log(userid)
     const res = await fetch(
-      `http://localhost:8080/gettodayswhoopdata/userid/${userid}`,
+      `http://localhost:8080/whoop/gettodayswhoopdata/userid/${userid}`,
       {
         method: "GET",
         mode: "cors",
@@ -34,7 +33,6 @@ export const getRecoveryData = createAsyncThunk(
       }
     );
     const resdata = await res.json();
-    console.log(resdata);
     return resdata;
   }
 );

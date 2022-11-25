@@ -54,7 +54,6 @@ async function getTodaysRecoveryData(userid) {
       }
     );
     const sleepResData = await sleepres.json();
-    console.log(sleepResData)
     let rv = null;
     if (typeof sleepResData.records[0] != undefined) {
       const start = new Date(sleepResData.records[0].start);
@@ -76,7 +75,6 @@ async function getTodaysRecoveryData(userid) {
     }
     return rv;
   } catch (err) {
-    console.log('Error from getwhoopdata funtion: ', err);
     return {
       recovery: ResData.records[0].score.recovery_score,
       strain: strainResData.score.strain,

@@ -75,7 +75,7 @@ export const getUserJournal = createAsyncThunk(
   "DailyJournal/getUserJournal",
   async (data) => {
     const res = await fetch(
-      `http://localhost:8080/getjournalentry/userid/${data.userid}/daysprior/${data.daysprior}`,
+      `http://localhost:8080/dailyentry/getdailyentry/userid/${data.userid}/daysprior/${data.daysprior}`,
       {
         method: "GET",
         mode: "cors",
@@ -85,12 +85,10 @@ export const getUserJournal = createAsyncThunk(
       }
     );
     const resdata = await res.json();
-    console.log(resdata)
     if (resdata.completed) {
       return resdata
     } else {
       const x = new Date((new Date() - new Date().getTimezoneOffset() * 60000) - (data.daysprior * (1000 * 60 * 60 * 24))).toISOString().split('T')[0]
-      console.log(x)
       return x
     }
   }
@@ -99,7 +97,7 @@ export const getUserJournal = createAsyncThunk(
 export const insertUserJournal = createAsyncThunk(
   "DailyJournal/insertUserJournal",
   async (data) => {
-    const res = await fetch(`http://localhost:8080/insertdailyentry`, {
+    const res = await fetch(`http://localhost:8080/daiyentry/insertdailyentry`, {
       method: "POST",
       mode: "cors",
       headers: {
@@ -115,7 +113,7 @@ export const insertUserJournal = createAsyncThunk(
 export const updateUserJournal = createAsyncThunk(
   "DailyJournal/updateUserJournal",
   async (data) => {
-    const res = await fetch(`http://localhost:8080/updatedailyentry`, {
+    const res = await fetch(`http://localhost:8080/dailyentry/updatedailyentry`, {
       method: "POST",
       mode: "cors",
       headers: {

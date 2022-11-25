@@ -53,7 +53,6 @@ function EverydaysComponent(props) {
   };
 
   const DeleteMyEveryday = (hmy) => {
-    console.log(hmy)
     dispatch(deleteEveryday({
       userid: userid,
       hmy: hmy

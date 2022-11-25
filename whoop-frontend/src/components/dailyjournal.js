@@ -94,11 +94,9 @@ const DailyJournal = (props) => {
       iwhoopcycleid: whoopdata.cycleid,
       userid: userid,
     };
-    console.log(dtofentry);
     if (completed) {
       dispatch(updateUserJournal(data));
     } else {
-      console.log("dispatching");
       dispatch(insertUserJournal(data));
     }
     setJournalCompleted(true)

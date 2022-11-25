@@ -24,7 +24,7 @@ export const getTomorrowUserTodos = createAsyncThunk(
   "TomorrowTodos/getTomorrowUserTodos",
   async (userid) => {
     const res = await fetch(
-      `http://localhost:8080/gettomorrowtodos/userid/${userid}`,
+      `http://localhost:8080/todos/gettomorrowtodos/userid/${userid}`,
       {
         method: "GET",
         mode: "cors",
@@ -41,7 +41,7 @@ export const getTomorrowUserTodos = createAsyncThunk(
 export const addNewTomorrowTodo = createAsyncThunk(
   "TomorrowTodos/addNewTomorrowTodo",
   async (data) => {
-    const res = await fetch(`http://localhost:8080/addtomorrowtodo`, {
+    const res = await fetch(`http://localhost:8080/todos/addtomorrowtodo`, {
       method: "POST",
       mode: "cors",
       headers: {
@@ -57,7 +57,7 @@ export const addNewTomorrowTodo = createAsyncThunk(
 export const removeTomorrowTodo = createAsyncThunk(
   "TomorrowTodos/removeTomorrowTodo",
   async (data) => {
-    const res = await fetch(`http://localhost:8080/removetomorrowtodo`, {
+    const res = await fetch(`http://localhost:8080/todos/removetomorrowtodo`, {
       method: "POST",
       mode: "cors",
       headers: {

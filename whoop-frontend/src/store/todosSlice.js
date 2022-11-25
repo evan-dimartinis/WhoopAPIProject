@@ -26,7 +26,7 @@ export const TodosSlice = createSlice({
 export const getUserTodos = createAsyncThunk(
   "Todos/getUserTodos",
   async (userid) => {
-    const res = await fetch(`http://localhost:8080/gettodos/userid/${userid}`, {
+    const res = await fetch(`http://localhost:8080/todos/gettodos/userid/${userid}`, {
       method: "GET",
       mode: "cors",
       headers: {
@@ -39,7 +39,7 @@ export const getUserTodos = createAsyncThunk(
 );
 
 export const addNewTodo = createAsyncThunk("Todos/addNewTodo", async (data) => {
-  const res = await fetch(`http://localhost:8080/addnewtodo`, {
+  const res = await fetch(`http://localhost:8080/todos/addnewtodo`, {
     method: "POST",
     mode: "cors",
     headers: {
@@ -54,7 +54,7 @@ export const addNewTodo = createAsyncThunk("Todos/addNewTodo", async (data) => {
 export const markAsComplete = createAsyncThunk(
   "Todos/markAsComplete",
   async (data) => {
-    const res = await fetch(`http://localhost:8080/marktodoascomplete`, {
+    const res = await fetch(`http://localhost:8080/todos/marktodoascomplete`, {
       method: "POST",
       mode: "cors",
       headers: {
@@ -70,7 +70,7 @@ export const markAsComplete = createAsyncThunk(
 export const removeTodo = createAsyncThunk(
   "Todos/removeTodo",
   async (data) => {
-    const res = await fetch(`http://localhost:8080/removetodoitem`, {
+    const res = await fetch(`http://localhost:8080/todos/removetodoitem`, {
       method: "POST",
       mode: "cors",
       headers: {
