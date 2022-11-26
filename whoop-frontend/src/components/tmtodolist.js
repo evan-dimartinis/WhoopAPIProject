@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./todolist.css";
 import "../App.css";
 import { addNewTomorrowTodo, removeTomorrowTodo } from "../store/tmtodosSlice";
-import TrashIcon from '@iconscout/react-unicons/icons/uil-trash';
+import TrashIcon from "@iconscout/react-unicons/icons/uil-trash";
 
 function TomorrowTodoList(props) {
   const dispatch = useDispatch();
@@ -22,11 +22,18 @@ function TomorrowTodoList(props) {
   };
 
   const removeTmTD = (hmy) => {
-    dispatch(removeTomorrowTodo({
-      userid: userid,
-      hmy: hmy
-    }))
-  }
+    dispatch(
+      removeTomorrowTodo({
+        userid: userid,
+        hmy: hmy,
+      })
+    );
+  };
+
+  const onenter = (event) => {
+    addTmTD();
+    event.preventDefault();
+  };
 
   return (
     <div className="tasksectioncontainer">
@@ -47,7 +54,7 @@ function TomorrowTodoList(props) {
                     color={"white"}
                     size={20}
                     onClick={() => {
-                      removeTmTD(item.hmy)
+                      removeTmTD(item.hmy);
                     }}
                   />
                 </div>
@@ -56,12 +63,14 @@ function TomorrowTodoList(props) {
           );
         })}
         <div className="newtododiv">
-          <input
-            className="newtodoinput"
-            type={"text"}
-            value={newTodoTitle}
-            onChange={(e) => setNewTodoTitle(e.target.value)}
-          />
+          <form onSubmit={onenter}>
+            <input
+              className="newtodoinput"
+              type={"text"}
+              value={newTodoTitle}
+              onChange={(e) => setNewTodoTitle(e.target.value)}
+            />
+          </form>
           <button className="addnewtodobtn" onClick={addTmTD}>
             +
           </button>

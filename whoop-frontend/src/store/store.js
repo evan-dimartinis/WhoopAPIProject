@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit"
 import { AuthSlice } from "./authSlice";
 import { DailyJournalSlice } from "./dailyjournalSlice";
 import { EverydaysSlice } from "./everydaysSlice";
+import { JournalEntrySlice } from "./journalentrySlice";
 import { TomorrowTodosSlice } from "./tmtodosSlice";
 import { TodosSlice } from './todosSlice';
 import { WhoopSlice } from "./whoopSlice";
@@ -13,7 +14,8 @@ const store = configureStore({
         Todos: TodosSlice.reducer,
         TomorrowTodos: TomorrowTodosSlice.reducer,
         Whoop: WhoopSlice.reducer,
-        DailyJournal: DailyJournalSlice.reducer
+        DailyJournal: DailyJournalSlice.reducer,
+        JournalEntry: JournalEntrySlice.reducer
     }
 })
 

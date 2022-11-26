@@ -4,6 +4,8 @@ const {
   getUserJournal,
   insertUserJournal,
   updateUserJournal,
+  postUserJournalEntry,
+  getUserJournalEntry
 } = require("../Queries/dailyjournal");
 
 router.get(
@@ -33,6 +35,24 @@ router.post("/insertdailyentry", async (req, res) => {
 router.post("/updatedailyentry", async (req, res) => {
   try {
     const response = await updateUserJournal(req.body);
+    res.status(200);
+  } catch (err) {
+    res.status(500);
+  }
+});
+
+router.get("/getjournalentry/userid/:userid", async (req, res) => {
+  try {
+    const response = await getUserJournalEntry(req.params.userid);
+    res.status(200).json(response);
+  } catch (err) {
+    res.status(500);
+  }
+});
+
+router.post(`/postjournalentry`, async (req, res) => {
+  try {
+    const response = await postUserJournalEntry(req.body);
     res.status(200);
   } catch (err) {
     res.status(500);

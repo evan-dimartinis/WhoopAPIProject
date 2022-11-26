@@ -14,6 +14,7 @@ import { getRecoveryData } from "../store/whoopSlice";
 import DailyJournal from "../components/dailyjournal";
 import { getUserJournal } from "../store/dailyjournalSlice";
 import JournalEntry from "../components/journalentry";
+import { getJournalEntry } from "../store/journalentrySlice";
 
 export default function Dashboard(props) {
   const userdata = useSelector((state) => state.Auth);
@@ -31,6 +32,7 @@ export default function Dashboard(props) {
         await dispatch(getUserTodos(userdata.userid));
         await dispatch(getTomorrowUserTodos(userdata.userid));
         await dispatch(getRecoveryData(userdata.userid));
+        await dispatch(getJournalEntry(userdata.userid))
         await dispatch(
           getUserJournal({ userid: userdata.userid, daysprior: 0 })
         );

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addNewTodo, markAsComplete, removeTodo } from "../store/todosSlice";
-import TrashIcon from '@iconscout/react-unicons/icons/uil-trash';
+import TrashIcon from "@iconscout/react-unicons/icons/uil-trash";
 import "./todolist.css";
 import "../App.css";
 
@@ -39,6 +39,11 @@ function TodoList(props) {
     );
   };
 
+  const onenter = (event) => {
+    addTodo()
+    event.preventDefault();
+  };
+
   return (
     <div className="tasksectioncontainer">
       <h1 className="sectiontitle">Today's To Do List</h1>
@@ -62,21 +67,28 @@ function TodoList(props) {
                   >
                     Done
                   </button>
-                  <TrashIcon color={"white"} size={20} onClick={() => {
-                    deleteTodo(item.hmy)
-                  }} />
+                  <TrashIcon
+                    color={"white"}
+                    size={20}
+                    onClick={() => {
+                      deleteTodo(item.hmy);
+                    }}
+                  />
                 </div>
               )}
             </div>
           );
         })}
         <div className="newtododiv">
-          <input
-            className="newtodoinput"
-            type={"text"}
-            value={newTodoTitle}
-            onChange={(e) => setNewTodoTitle(e.target.value)}
-          />
+          <form onSubmit={onenter}>
+            <input
+              className="newtodoinput"
+              type={"text"}
+              value={newTodoTitle}
+              onChange={(e) => setNewTodoTitle(e.target.value)}
+            />
+          </form>
+
           <button className="addnewtodobtn" onClick={addTodo}>
             +
           </button>

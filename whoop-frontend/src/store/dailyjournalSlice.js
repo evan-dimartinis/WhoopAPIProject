@@ -97,7 +97,7 @@ export const getUserJournal = createAsyncThunk(
 export const insertUserJournal = createAsyncThunk(
   "DailyJournal/insertUserJournal",
   async (data) => {
-    const res = await fetch(`http://localhost:8080/daiyentry/insertdailyentry`, {
+    const res = await fetch(`http://localhost:8080/dailyentry/insertdailyentry`, {
       method: "POST",
       mode: "cors",
       headers: {
