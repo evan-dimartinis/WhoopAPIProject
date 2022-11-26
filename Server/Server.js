@@ -9,6 +9,7 @@ const everydays = require('./Routes/everydays')
 const todos = require('./Routes/todos')
 const dailyentry = require('./Routes/dailyentry')
 const whoop = require('./Routes/whoop')
+const goals = require('./Routes/goals')
 
 app.set("trust proxy", 1);
 app.use(session(sessionobject));
@@ -21,6 +22,7 @@ app.use("/everydays", everydays)
 app.use("/todos", todos)
 app.use('/dailyentry', dailyentry)
 app.use('/whoop', whoop)
+app.use('/goals', goals)
 
 app.get("/", async (req, res) => {
   Auth.isuserauthenticated = true;
