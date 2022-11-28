@@ -1,0 +1,179 @@
+.GoalsDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 30%;
+    height: 95%;
+    margin-left: 1.66%;
+    margin-right: 1.66%;
+    background-color: black;
+    margin-top: 10px;
+}
+
+.goalslistdiv {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.goaldiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 99%;
+    height: fit-content;
+    border-radius: 5px;
+}
+
+.complete {
+    border: 1px green solid;
+}
+
+.incomplete {
+    border: 1px white solid;
+}
+
+.goalname {
+    font-size: x-large;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 30%;
+}
+
+.goalactionsdiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: min-content;
+}
+
+.progressbardiv {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    height: min-content;
+    align-items: center;
+    justify-content: center;
+    height: 15%;
+    margin: 0;
+    padding: 0;
+}
+
+.progresspercent {
+    color: white;
+    margin-left: 10px;
+}
+
+.scalediv {
+    height: 1vh;
+    width: 100%;
+    background-color: grey;
+}
+
+.donebtn {
+    margin: 0;
+    width: 80%;
+    background-color: black;
+    border: 1px white solid;
+    color: white;
+    height: 3vh;
+}
+
+.donebtn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.extendbtn {
+    margin-top: 10px;
+    width: 80%;
+    background-color: black;
+    border: 1px white solid;
+    color: white;
+    height: 3vh;
+}
+
+.extendbtn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.daystogo {
+    color: white;
+    margin: 0;
+}
+
+@keyframes showextend {
+    from {
+        height: 0;
+    }
+    to {
+        height: 40px;
+    }
+}
+
+@keyframes hideextend {
+    from {
+        height: 40px;
+    }
+    to {
+        height: 0;
+    }
+}
+
+.extenddiv {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.extend {
+    animation: showextend .25s alternate 0s 1 both;
+}
+
+.hidden {
+    animation: hideextend .25s alternate 0s 1 both;
+    overflow-y: hidden;
+}
+
+.extendinput {
+    color: white;
+}
+
+.addgoaldiv {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+}
+
+.newgoalname {
+    color: white;
+    border: none;
+    border-bottom: 1px white solid;
+    width: 100%;
+    background-color: black;
+    outline: none;
+}
+
+.newgoalenddate {
+    background-color: black;
+    color: white;
+    width: 50%;
+}

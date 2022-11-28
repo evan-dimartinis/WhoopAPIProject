@@ -20,4 +20,4 @@ router.post("/insertnewgoal", async (req, res) => {
   }
 });
 
-export default router;
+module.exports = router;

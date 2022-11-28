@@ -1,11 +1,11 @@
 .everydaysdiv {
     height: 100%;
     background-color: black;
-    overflow-y: auto;
     width: 100%;
     border-radius: 5px;
     overflow-y: auto hidden;
     border-bottom: 1px white solid;
+    overflow-x: hidden;
 }
 
 .everydayrow {
