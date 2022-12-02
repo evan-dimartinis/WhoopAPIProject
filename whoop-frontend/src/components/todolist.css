@@ -12,8 +12,18 @@
     background-color: black;
     width: 100%;
     border-radius: 5px;
-    overflow-y: auto hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
     border-bottom: 1px white solid;
+}
+
+.todoslistdiv::-webkit-scrollbar {
+    background-color: black;
+    width: 2px;
+}
+
+.todoslistdiv::-webkit-scrollbar-thumb {
+    background-color: white;
 }
 
 .todotitle {

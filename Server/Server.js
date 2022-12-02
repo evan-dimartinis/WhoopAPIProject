@@ -25,7 +25,6 @@ app.use('/whoop', whoop)
 app.use('/goals', goals)
 
 app.get("/", async (req, res) => {
-  Auth.isuserauthenticated = true;
   res.send("Okay");
 });
 

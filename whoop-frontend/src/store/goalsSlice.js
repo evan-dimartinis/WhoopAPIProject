@@ -12,6 +12,7 @@ export const GoalsSlice = createSlice({
     })
     .addCase(insertNewGoal.fulfilled, (state, action) => {
         state.goals = action.payload
+        console.log(state)
     })
   },
 });

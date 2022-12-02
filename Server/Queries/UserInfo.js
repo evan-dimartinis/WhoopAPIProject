@@ -14,6 +14,7 @@ async function getTodaysRecoveryData(userid) {
       data.refreshtoken,
       userid
     );
+    console.log(token)
     let query = new URLSearchParams({
       limit: "1",
     });
@@ -26,6 +27,7 @@ async function getTodaysRecoveryData(userid) {
         method: "GET",
       }
     );
+    console.log(res)
     const ResData = await res.json();
     const strainres = await fetch(
       `https://api.prod.whoop.com/developer/v1/cycle/${ResData.records[0].cycle_id}`,
@@ -75,6 +77,7 @@ async function getTodaysRecoveryData(userid) {
     }
     return rv;
   } catch (err) {
+    console.log(err)
     return {
       recovery: ResData.records[0].score.recovery_score,
       strain: strainResData.score.strain,

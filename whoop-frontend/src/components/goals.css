@@ -15,10 +15,18 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 80%;
+    height: 85%;
     overflow-y: auto;
     align-items: center;
     justify-content: flex-start;
+}
+
+.goalslistdiv::-webkit-scrollbar {
+    width: 2px;
+}
+
+.goalslistdiv::-webkit-scrollbar-thumb {
+    background-color: white;
 }
 
 .goaldiv {
@@ -159,7 +167,7 @@
     flex-direction: column;
     background-color: black;
     width: 100%;
-    height: 20%;
+    height: 15%;
     align-items: center;
 }
 
@@ -176,4 +184,29 @@
     background-color: black;
     color: white;
     width: 50%;
+}
+
+.CreateBtn {
+    width: 80%;
+    height: 30%;
+    background-color: black;
+    border: 1px white solid;
+    color: white;
+}
+
+.invalid {
+    color: darkgray;
+}
+
+.CreateBtn:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.invalid:hover {
+    color: gray;
+    background-color: black;
+    cursor: default;
+
 }

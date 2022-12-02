@@ -5,7 +5,9 @@ const insertNewGoal = async (data) => {
     const res =
       await pool.query(`insert into goals (happuser, dtcreated, dtend, sname, bcompleted, dtcompleted, bremoved, inumextensions, idaysextended)
                  values (${data.userid}, current_timestamp, '${data.dtend}'::timestamptz, '${data.sname}', false, null, false, 0, 0)`);
-    return await getUserGoals(data.userid);
+    const resdata = await getUserGoals(data.userid);
+    console.log(resdata)
+    return resdata;
   } catch (err) {
     throw new Error("Could not insert user goal");
   }

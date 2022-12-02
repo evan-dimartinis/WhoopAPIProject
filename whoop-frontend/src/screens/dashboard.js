@@ -30,6 +30,7 @@ export default function Dashboard(props) {
     }
     async function getData() {
       if (userdata.userid > 0) {
+        await dispatch(getUserGoals(userdata.userid))
         await dispatch(getUserEverydays(userdata.userid));
         await dispatch(getUserTodos(userdata.userid));
         await dispatch(getTomorrowUserTodos(userdata.userid));
@@ -38,7 +39,6 @@ export default function Dashboard(props) {
         await dispatch(
           getUserJournal({ userid: userdata.userid, daysprior: 0 })
         );
-        await dispatch(getUserGoals(userdata.userid))
       }
     }
     getData();
