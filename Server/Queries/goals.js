@@ -6,7 +6,6 @@ const insertNewGoal = async (data) => {
       await pool.query(`insert into goals (happuser, dtcreated, dtend, sname, bcompleted, dtcompleted, bremoved, inumextensions, idaysextended)
                  values (${data.userid}, current_timestamp, '${data.dtend}'::timestamptz, '${data.sname}', false, null, false, 0, 0)`);
     const resdata = await getUserGoals(data.userid);
-    console.log(resdata)
     return resdata;
   } catch (err) {
     throw new Error("Could not insert user goal");
@@ -24,7 +23,28 @@ const getUserGoals = async (userid) => {
   }
 };
 
+const markAsComplete = async (data) => {
+  try {
+    const res = await pool.query(`update goals set bcompleted = true where hmy = ${data.hmy}`)
+    return await getUserGoals(data.userid)
+  } catch (err) {
+    throw new Error("Could not mark goal as complete") 
+  }
+}
+
+const extendGoal = async (data) => {
+  try {
+    console.log(data)
+    const res = pool.query(`update goals set dtend = '${data.dtend}'::timestamptz, inumextensions = inumextensions + 1, idaysextended = idaysextended + date_part('day', '${date.dtend}'::timestamptz - dtend) where hmy = ${data.hmy}`)
+    return await getUserGoals(data.userid)
+  } catch (err) {
+    throw new Error("could not extend goal")
+  }
+}
+
 module.exports = {
     getUserGoals,
-    insertNewGoal
+    insertNewGoal,
+    markAsComplete,
+    extendGoal
 }

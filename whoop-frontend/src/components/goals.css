@@ -41,6 +41,7 @@
 
 .complete {
     border: 1px green solid;
+    background-color: rgb(72, 99, 72);
 }
 
 .incomplete {
