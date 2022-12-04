@@ -22,6 +22,7 @@ router.post("/insertnewgoal", async (req, res) => {
 
 router.post('/extendgoal', async (req, res) => {
   try {
+    console.log(req.body)
     const response = await extendGoal(req.body)
     res.status(200).json(response)
   } catch (err) {

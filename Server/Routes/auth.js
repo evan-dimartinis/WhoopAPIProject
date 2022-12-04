@@ -34,6 +34,7 @@ router.get(
 );
 
 router.post("/authenticateuser", async (req, res) => {
+  console.log('in route')
   const authres = await Auth.UserAuthFlow(req.body.username, req.body.password);
   res.status(200).json(authres);
 });

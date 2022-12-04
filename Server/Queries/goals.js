@@ -15,7 +15,7 @@ const insertNewGoal = async (data) => {
 const getUserGoals = async (userid) => {
   try {
     const res =
-      await pool.query(`select hmy, sname, bcompleted, date_part('day', dtend - dtcreated) as totaldays, date_part('day', current_timestamp - dtcreated) as dayselapsed, date_part('day', dtend - current_timestamp) as daystogo 
+      await pool.query(`select hmy, sname, bcompleted, dtcompleted, date_part('day', dtend - dtcreated) as totaldays, date_part('day', current_timestamp::timestamptz - dtcreated) as dayselapsed, date_part('day', dtend - current_timestamp) as daystogo 
         from goals where bremoved = false and happuser = ${userid} order by bcompleted, dtend`);
     return res.rows;
   } catch (err) {
@@ -25,7 +25,7 @@ const getUserGoals = async (userid) => {
 
 const markAsComplete = async (data) => {
   try {
-    const res = await pool.query(`update goals set bcompleted = true where hmy = ${data.hmy}`)
+    const res = await pool.query(`update goals set bcompleted = true, dtcompleted = current_timestamp where hmy = ${data.hmy}`)
     return await getUserGoals(data.userid)
   } catch (err) {
     throw new Error("Could not mark goal as complete") 
@@ -34,8 +34,8 @@ const markAsComplete = async (data) => {
 
 const extendGoal = async (data) => {
   try {
-    console.log(data)
-    const res = pool.query(`update goals set dtend = '${data.dtend}'::timestamptz, inumextensions = inumextensions + 1, idaysextended = idaysextended + date_part('day', '${date.dtend}'::timestamptz - dtend) where hmy = ${data.hmy}`)
+    const q = `update goals set dtend = '${data.dtend}'::timestamptz, inumextensions = inumextensions + 1, idaysextended = idaysextended + date_part('day', '${data.dtend}'::timestamptz - dtend) where hmy = ${data.hmy}`
+    const res = pool.query(q)
     return await getUserGoals(data.userid)
   } catch (err) {
     throw new Error("could not extend goal")

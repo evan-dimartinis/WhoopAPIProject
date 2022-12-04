@@ -36,6 +36,7 @@ export const getUserGoals = createAsyncThunk(
       }
     );
     const resdata = await res.json();
+    console.log(resdata)
     return resdata;
   }
 );

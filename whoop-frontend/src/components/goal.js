@@ -47,11 +47,11 @@ const Goal = (props) => {
           <div className="progressbardiv">
             <div className="scalediv">
               <Progressdiv
-                reach={Math.round(props.item.daystogo / props.item.totaldays)}
+                reach={Math.round((props.item.dayselapsed / props.item.totaldays) * 100)}
               ></Progressdiv>
             </div>
             <p className="progresspercent">
-              {Math.round(props.item.daystogo / props.item.totaldays)}%
+              {Math.round((props.item.dayselapsed / props.item.totaldays) * 100)}%
             </p>
           </div>
           <button className="donebtn" onClick={complete}>Done</button>
@@ -80,7 +80,11 @@ const Goal = (props) => {
             </button>
           </div>
         </div>
-      ) : null}
+      ) : (
+        <div className="completeddiv">
+          <p className="completedontext">Completed on: {props.item.dtcompleted.toString().split("T")[0]}</p>
+        </div>
+      )}
     </div>
   );
 };
