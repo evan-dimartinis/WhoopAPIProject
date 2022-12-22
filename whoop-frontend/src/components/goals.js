@@ -42,7 +42,7 @@ const Goals = (props) => {
           onChange={(e) => {
             setNewgoalname(e.target.value);
             setIsValidToCreate(
-              e.target.value !== "" && newgoalenddate.length > 0
+              (e.target.value.length > 0 && newgoalenddate.length > 0)
             );
           }}
         />
@@ -52,14 +52,14 @@ const Goals = (props) => {
           value={newgoalenddate}
           onChange={(e) => {
             setNewgoalenddate(e.target.value);
-            setIsValidToCreate(e.target.value !== "" && newgoalname.length > 0);
+            setIsValidToCreate((e.target.value.length > 0 && newgoalname.length > 0));
           }}
           required
         />
         <button
           className={isValidToCreate ? "CreateBtn" : "CreateBtn invalid"}
           onClick={createnewgoal}
-          disabled={isValidToCreate}
+          disabled={!isValidToCreate}
         >
           Create
         </button>

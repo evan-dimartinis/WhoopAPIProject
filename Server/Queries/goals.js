@@ -2,6 +2,7 @@ const { pool } = require("../db");
 
 const insertNewGoal = async (data) => {
   try {
+    console.log(data)
     const res =
       await pool.query(`insert into goals (happuser, dtcreated, dtend, sname, bcompleted, dtcompleted, bremoved, inumextensions, idaysextended)
                  values (${data.userid}, current_timestamp, '${data.dtend}'::timestamptz, '${data.sname}', false, null, false, 0, 0)`);
@@ -16,7 +17,7 @@ const getUserGoals = async (userid) => {
   try {
     const res =
       await pool.query(`select hmy, sname, bcompleted, dtcompleted, date_part('day', dtend - dtcreated) as totaldays, date_part('day', current_timestamp::timestamptz - dtcreated) as dayselapsed, date_part('day', dtend - current_timestamp) as daystogo 
-        from goals where bremoved = false and happuser = ${userid} order by bcompleted, dtend`);
+        from goals where bremoved = false and happuser = ${userid} and bcompleted = false order by bcompleted, dtend`);
     return res.rows;
   } catch (err) {
     throw new Error("Could not get user goals");

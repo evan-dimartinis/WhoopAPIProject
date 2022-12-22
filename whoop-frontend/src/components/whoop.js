@@ -9,7 +9,7 @@ const extendwhoopbardiv = (reach) => keyframes`
     }  
 
     to {
-      width: ${reach}%
+      width: ${reach*2}%
     }
   `;
 

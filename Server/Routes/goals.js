@@ -13,6 +13,7 @@ router.get("/getusergoals/userid/:userid", async (req, res) => {
 
 router.post("/insertnewgoal", async (req, res) => {
   try {
+    console.log('insert new goal route')
     const response = await insertNewGoal(req.body);
     res.status(200).json(response);
   } catch (err) {
@@ -22,7 +23,6 @@ router.post("/insertnewgoal", async (req, res) => {
 
 router.post('/extendgoal', async (req, res) => {
   try {
-    console.log(req.body)
     const response = await extendGoal(req.body)
     res.status(200).json(response)
   } catch (err) {
