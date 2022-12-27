@@ -31,3 +31,6 @@ As the project progresses I'm really looking forward to using more of Whoop's da
 
 <h1>Front End</h1>
 Front end is a very simple single-page application that dynamically gets and renders user data from the database
+
+  
+<img width="1440" alt="Screen Shot 2022-12-22 at 4 04 56 PM" src="https://user-images.githubusercontent.com/60354368/209225791-ab496d89-5373-4a16-b04f-2ffb7576fe5d.png">
