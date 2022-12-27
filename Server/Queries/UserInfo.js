@@ -84,9 +84,14 @@ async function getTodaysRecoveryData(userid) {
 }
 
 
-//need to think about this a bit to figure what the best way to get recovery and strain scores are for a given date
-//API does not make it easy
+//This is going to be super ugly and inefficient but given the endpoints for whoop idk how else to do it
 async function retroUpdateWhoopData(userid) {
+  /*
+  This function should:
+    compare last updated date to date of record for database dailyjournal record
+    seems inefficient, but it is definitely the least complicated, most efficient way to do it
+      - eventually we will want to figure out how to keep track of like last-processed days, but for now we're gonna start with straight 25 days
+  */
   try {
     const data = await getLastRefreshTokenWithID(userid);
     const token = await getAccessTokenWithRefreshTokenAndID(
