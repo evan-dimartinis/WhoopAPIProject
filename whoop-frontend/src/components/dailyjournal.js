@@ -126,7 +126,7 @@ const DailyJournal = (props) => {
           }}
         />
       </div>
-      {/* <div className="journalentryrow">
+      <div className="journalentryrow">
         <p className="entrylabel">Marijuana</p>
         <Switch
           checked={bmarijuana}
@@ -134,7 +134,7 @@ const DailyJournal = (props) => {
             setBmarijuana(e.target.checked);
           }}
         />
-      </div> */}
+      </div>
       <div className="journalentryrow">
         <p className="entrylabel">WFH</p>
         <Switch

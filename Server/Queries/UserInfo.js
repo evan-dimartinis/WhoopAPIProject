@@ -83,6 +83,33 @@ async function getTodaysRecoveryData(userid) {
   }
 }
 
+
+//need to think about this a bit to figure what the best way to get recovery and strain scores are for a given date
+//API does not make it easy
+async function retroUpdateWhoopData(userid) {
+  try {
+    const data = await getLastRefreshTokenWithID(userid);
+    const token = await getAccessTokenWithRefreshTokenAndID(
+      data.refreshtoken,
+      userid
+    );
+    let query = new URLSearchParams({
+      limit: "1",
+    });
+    const res = await fetch(
+      `https://api.prod.whoop.com/developer/v1/recovery?${query}`,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+        method: "GET",
+      }
+    );
+  } catch (err) {
+    return false;
+  }
+}
+
 async function InsertUserData(
   firstname,
   lastname,
