@@ -13,4 +13,6 @@ router.get("/gettodayswhoopdata/userid/:userid", async (req, res) => {
   }
 });
 
+router.get('/retroupdate')
+
 module.exports = router;

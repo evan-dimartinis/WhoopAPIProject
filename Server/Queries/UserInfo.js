@@ -38,8 +38,8 @@ async function getTodaysRecoveryData(userid) {
     );
     const strainResData = await strainres.json();
     let midnighttoday = new Date();
-    midnighttoday.setHours(0,0,0,0);
-    midnighttoday = midnighttoday.toISOString()
+    midnighttoday.setHours(0, 0, 0, 0);
+    midnighttoday = midnighttoday.toISOString();
     query = new URLSearchParams({
       limit: "1",
       start: midnighttoday,
@@ -63,14 +63,14 @@ async function getTodaysRecoveryData(userid) {
         recovery: ResData.records[0].score.recovery_score,
         strain: strainResData.score.strain,
         minutesAsleep: minutesAsleep,
-        cycle_id: ResData.records[0].cycle_id
+        cycle_id: ResData.records[0].cycle_id,
       };
     } else {
       rv = {
         recovery: ResData.records[0].score.recovery_score,
         strain: strainResData.score.strain,
         minutesAsleep: 0,
-        cycle_id: ResData.records[0].cycle_id
+        cycle_id: ResData.records[0].cycle_id,
       };
     }
     return rv;
@@ -82,7 +82,6 @@ async function getTodaysRecoveryData(userid) {
     };
   }
 }
-
 
 //This is going to be super ugly and inefficient but given the endpoints for whoop idk how else to do it
 async function retroUpdateWhoopData(userid) {
@@ -99,9 +98,9 @@ async function retroUpdateWhoopData(userid) {
       userid
     );
     let query = new URLSearchParams({
-      limit: "1",
+      limit: "25",
     });
-    const res = await fetch(
+    const recoveryres = await fetch(
       `https://api.prod.whoop.com/developer/v1/recovery?${query}`,
       {
         headers: {
@@ -110,6 +109,18 @@ async function retroUpdateWhoopData(userid) {
         method: "GET",
       }
     );
+    const cycleres = await fetch(
+      `https://api.prod.whoop.com/developer/v1/cycle?${query}`,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+        method: "GET",
+      }
+    );
+    const recoverydata = await recoveryres.json()
+    const cycledata = await cycleres.json()
+    console.log(cycledata)
   } catch (err) {
     return false;
   }
